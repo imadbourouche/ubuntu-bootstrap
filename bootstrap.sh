@@ -10,7 +10,7 @@ sudo apt install -y \
     software-properties-common unzip build-essential \
     libssl-dev libreadline-dev zlib1g-dev libffi-dev libyaml-dev \
     libgdbm-dev libncurses5-dev libdb-dev libsqlite3-dev \
-    build-essential autoconf bison
+    build-essential autoconf bison htop vim
 
 # Zsh, Terminator, Flameshot, Git
 for pkg in zsh terminator flameshot git; do
