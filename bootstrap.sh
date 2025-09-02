@@ -185,4 +185,18 @@ else
   echo "🎉 Oh-My-Zsh installed. Default shell set to Zsh."
 fi
 
+# -----------------------------
+# Lazygit
+# -----------------------------
+if command -v lazygit -v &>/dev/null; then
+  echo "✅ lazygit already installed."
+else
+  echo "⚡ Installing lazygit..."
+  LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | \grep -Po '"tag_name": *"v\K[^"]*')
+  curl -Lo /tmp/lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/download/v${LAZYGIT_VERSION}/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
+  tar -xf /tmp/lazygit.tar.gz -C /tmp lazygit
+  sudo install /tmp/lazygit -D -t /usr/local/bin/
+  echo "🎉 lazygit installed."
+fi
+
 echo "🎉 Setup complete! Reboot recommended."
